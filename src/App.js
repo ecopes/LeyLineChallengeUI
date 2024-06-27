@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from 'react';
+import ImageUploadComponent from "./components/ImageUploadComponent";
+import PercentageDisplayComponent from './components/PercentageDisplayComponent';
+import VideoDisplayComponent from './components/VideoDisplayComponent';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => {
+    const [currentImageId, setCurrentImageId] = useState(null);
+    const [uploadComplete, setUploadComplete] = useState(false);
+
+    const handleUploadComplete = () => {
+        setUploadComplete(true);
+    };
+
+    const handleImageIdChange = (imageId) => {
+        setCurrentImageId(imageId);
+        setUploadComplete(false); // Reset upload complete state when a new image is uploaded
+    };
+
+    return (
+        <div>
+            <h1>React Django Image Upload and Video Display</h1>
+            <ImageUploadComponent onUploadComplete={handleImageIdChange}/>
+            {currentImageId && !uploadComplete && (
+                <PercentageDisplayComponent imageId={currentImageId} onUploadComplete={handleUploadComplete}/>
+            )}
+            {uploadComplete && (
+                <VideoDisplayComponent videoId={currentImageId}/>
+            )}
+        </div>
+    );
+};
 
 export default App;

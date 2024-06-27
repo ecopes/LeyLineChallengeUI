@@ -1,0 +1,19 @@
+.percentage-display {
+    margin-bottom: 20px;
+}
+
+.progress-bar {
+    width: 100%;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    padding: 3px;
+}
+
+.progress {
+    background-color: #4CAF50; /* Green */
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    color: white;
+    border-radius: 5px;
+}

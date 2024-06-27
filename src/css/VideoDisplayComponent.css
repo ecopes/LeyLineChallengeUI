@@ -1,0 +1,23 @@
+.video-container {
+    position: relative;
+}
+
+.video-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent overlay */
+    pointer-events: none; /* Allows clicks to pass through to underlying video */
+}
+
+video {
+    position: relative;
+    z-index: 1; /* Ensure video is above overlay */
+}
