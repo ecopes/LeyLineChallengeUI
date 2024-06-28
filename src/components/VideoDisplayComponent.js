@@ -12,11 +12,7 @@ const VideoDisplayComponent = ({videoId}) => {
                 setIsLoading(true);
                 setError(null);
 
-                const response = await fetch(`http://localhost:8000/api/v1/video/${videoId}/view/`, {
-                    headers: {
-                        'Authorization': 'Bearer YOUR_AUTH_TOKEN_HERE' // Add authentication if needed
-                    }
-                });
+                const response = await fetch(`http://localhost:8000/api/v1/video/${videoId}/view/`);
 
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
